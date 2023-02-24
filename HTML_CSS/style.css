@@ -1,29 +1,29 @@
-
-
-*{
-    font-family: Roboto,Arial,sans-serif;
+* {
+    font-family: Roboto, Arial, sans-serif;
 }
 
-body{
-    background-color: #ebeef1;;
+body {
+    background-color: #ebeef1;
+    ;
 }
-.navigation{
+
+.navigation {
     background-color: #2874f0;
     justify-content: center;
     align-items: center;
-    display:flex ;
+    display: flex;
     padding: 10px 0px;
     margin-top: 0px;
 }
 
-.logo{
+.logo {
     position: relative;
 }
 
-.search{
+.search {
     padding: 8px;
-    width: 400px;
-    height: 30px;
+    width: 480px;
+    height: 37px;
     background-color: white;
     margin: 0px 15px;
     justify-content: space-between;
@@ -32,14 +32,14 @@ body{
     font-size: 20px;
 }
 
-.search input{
-    width:380px;
+.search input {
+    width: 380px;
     border: none;
     outline: none;
     font-size: 15px;
 }
 
-.loginbtn{
+.loginbtn {
     padding: 7px 40px;
     color: #2874f0;
     font-weight: 900;
@@ -50,19 +50,19 @@ body{
 
 }
 
-.more{
-     margin-left: 60px;
-     color: white;
-     text-decoration: none;
-     font-size: 18px;
+.more {
+    margin-left: 60px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 
-.more i{
+.more i {
     font-size: 15px;
 }
 
-.navafter{
+.navafter {
     margin-top: -0px;
     justify-content: center;
     align-items: center;
@@ -71,37 +71,38 @@ body{
     background-color: white;
 }
 
-.navafter_div{
+.navafter_div {
     cursor: pointer;
     margin: 30px;
     text-align: center;
 }
 
-.navafter_div p{
+.navafter_div p {
     font-size: 14px;
     margin-left: 10px;
     margin-top: 2px;
     font-weight: 600;
 }
 
-.navafter_div img{
+.navafter_div img {
     height: 70px;
 }
 
-.navafter_div i{
+.navafter_div i {
     font-size: 10px;
 }
 
-.line{
+.line {
     border-bottom: 2px solid #e1e3e8;
     height: 30px;
 }
 
-.items{
+.items {
     display: flex;
+    margin-top: 10px;
 }
 
-.deals{
+.deals {
     margin-top: 15px;
     height: 400px;
     background-color: white;
@@ -110,7 +111,8 @@ body{
     width: 76%;
     justify-content: center;
 }
-.beginning{
+
+.beginning {
     background-color: white;
     margin-left: 8px;
     padding-left: 5px;
@@ -119,54 +121,62 @@ body{
 
 }
 
-.items span{
+.items span {
     display: inline-block;
     padding-left: 5px;
 }
-.deals img{
+
+.deals img {
     width: 163px;
     padding-top: 10px;
     margin: 4px;
     height: 163px;
     justify-content: center;
     align-items: stretch;
-    margin-right: 22px;   /* Horizontal Space */
-   margin-bottom: 10px;
-    
+    margin-right: 22px;
+    /* Horizontal Space */
+    margin-bottom: 10px;
+
 }
-.deals figcaption{
+
+.deals figcaption {
     text-align: center;
     line-height: 25px;
 }
-.music{
+
+.music {
     margin-top: 10px;
     height: 420px;
     background-color: white;
     margin-left: 100px;
     width: 90%;
     box-shadow: 0 5px 5px 0 rgba(99, 97, 97, 0.9);
-    
+
 }
-.music span{
+
+.music span {
     display: inline-block;
 }
-.music img{
+
+.music img {
     width: 175px;
     padding: 2px;
     margin: 15px;
     height: 180px;
     margin-right: 20px;
 }
-.music figcaption{
+
+.music figcaption {
     text-align: center;
     line-height: 25px;
 }
-.music line{
+
+.music line {
     height: 40px;
     margin-top: -20px;
 }
 
-.viewallbtn{
+.viewallbtn {
     background-color: #2874f0;
     color: white;
     padding: 10px;
@@ -177,17 +187,19 @@ body{
     outline: none;
 }
 
-.carousel-item{
+.carousel-item {
     height: 300px;
     margin-left: 100px;
-    -webkit-backface-visibility: unset!important;
-    backface-visibility: unset!important;
-} 
-.carousel-item img{
+    -webkit-backface-visibility: unset !important;
+    backface-visibility: unset !important;
+}
+
+.carousel-item img {
     height: 300px;
+    cursor: pointer;
 }
 
 .carousel {
-    width:1750px;
-    height:300px;
-  }
+    width: 1750px;
+    height: 300px;
+}
