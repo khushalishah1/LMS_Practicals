@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- link for css,font  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="calc">
+            <form>
+                <!-- display screen -->
+                <div class="display">
+                    <input id="screen" type="text" onkeypress="return checkPressedKey(event)" placeholder="0"
+                        autocomplete="off">
+                </div>
+
+                <!-- DEG and F-E button -->
+                <div>
+                    <button type="button" onclick="radToDeg(screen.value)" value="">DEG</button>
+                    <button type="button" onclick="" value="">F-E</button>
+                </div>
+                <br>
+
+                <!-- MC,MR,M+,M-,MS buttons -->
+                <div>
+                    <button type="button" style="color: darkgrey;" onclick="mc()" value="">MC</button>
+                    <button type="button" style="color: darkgrey;" onclick="mr()" value="">MR</button>
+                    <button type="button" onclick="mplus()" value="M+">M+</button>
+                    <button type="button" onclick="mminus()" value="">M-</button>
+                    <button type="button" onclick="ms()" value="">MS</button>
+                </div>
+
+                <!-- Trigonometry & function button -->
+                <div>
+                    <div class="dropdown">
+                        <button class="dropbtn" style="margin-left: -6px;">Trigonometry
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a onclick="sin()">sin</a>
+                            <a onclick="cos()">cos</a>
+                            <a onclick="tan()">tan</a>
+                            <a onclick="cot()">cot</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">function
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a onclick="floor()">Floor</a>
+                            <a onclick="ceil()">Ceil</a>
+                            <a onclick="sign()">sign</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2nd,pi,e,c,backspace button -->
+                <div>
+                    <button type="button" class="btn" value="">2<sup>nd</sup></button>
+                    <button type="button" onclick="pi()" value="">&pi;</button>
+                    <button type="button" onclick="evalue()" value="">e</button>
+                    <button type="button" onclick="clearall()" value="">C</button>
+                    <button type="button" onclick="backspace()" value=""><img width="17"
+                            src="../image/backspace.svg"></button>
+                </div>
+
+                <!-- x^2,1/x,|x|,exp,mod buttons -->
+                <div>
+                    <button type="button" onclick="power()" value="">x<sup>2</sup></button>
+                    <button type="button" onclick="oneuponx()" value="">1/x</button>
+                    <button type="button" onclick="positive()" value="">|x|</button>
+                    <button type="button" onclick="exp()" value="">exp</button>
+                    <button type="button" class="btn" value="">mod</button>
+                </div>
+
+                <!-- rootx,(,),n!,division buttons -->
+                <div>
+                    <button type="button" onclick="sqrt()" value="">2<span>&#8730;</span>x</button>
+                    <button type="button" class="btn" value="">(</button>
+                    <button type="button" class="btn" value="">)</button>
+                    <button type="button" onclick="fact(screen.value)" value="">n!</button>
+                    <button type="button" class="btn" value="">&#xf7;</button>
+                </div>
+
+                <!-- x^y,7,8,9,multiplication buttons -->
+                <div>
+                    <button type="button" class="btn" value="">x<sup>y</sup></button>
+                    <button type="button" class="btn" value="7"><b>7</b></button>
+                    <button type="button" class="btn" value="8"><b>8</b></button>
+                    <button type="button" class="btn" value="9"><b>9</b></button>
+                    <button type="button" class="btn" value="*">X</button>
+                </div>
+
+                <!-- 10^x,4,5,6,minus buttons -->
+                <div>
+                    <button type="button" onclick="tentox()" value="">10<sup>x</sup></button>
+                    <button type="button" class="btn" value="4"><b>4</b></button>
+                    <button type="button" class="btn" value="5"><b>5</b></button>
+                    <button type="button" class="btn" value="6"><b>6</b></button>
+                    <button type="button" class="btn" value="-">-</button>
+                </div>
+
+                <!-- log,1,2,3,plus buttons -->
+                <div>
+                    <button type="button" onclick="log()" value="">log</button>
+                    <button type="button" class="btn" value="1"><b>1</b></button>
+                    <button type="button" class="btn" value="2"><b>2</b></button>
+                    <button type="button" class="btn" value="3"><b>3</b></button>
+                    <button type="button" class="btn" value="">+</button>
+                </div>
+
+                <!-- ln, +/- , 0 , . , =  buttons -->
+                <div>
+                    <button type="button" onclick="ln()" value="">ln</button>
+                    <button type="button" onclick="plusminus()" value="">+/-</button>
+                    <button type="button" class="btn" value="0">0</button>
+                    <button type="button" class="btn" value=".">.</button>
+                    <button type="button" id="equ" style="background-color: aqua;" onclick="equal()"
+                        value=""><b>=</b></button>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
