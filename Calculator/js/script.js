@@ -5,34 +5,125 @@ let screen = document.querySelector('#screen');
 let btn = document.querySelectorAll(".btn");
 let x = 0;
 
-//for button press
+//for button press and also add validation so that any operator operates one time only
 for (let item of btn) {
     item.addEventListener('click', (e) => {
         btntext = e.target.innerText;
         //console.log(btntext);
 
-        if (btntext == 'X')
+        if (btntext == 'X') {
             btntext = '*';
+            let string = screen.value;
+            if (string.charAt(string.length - 1) == '*' || string.charAt(string.length - 1) == 'X' || string.charAt(string.length - 1) == '-'
+                || string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '/' || string.charAt(string.length - 1) == '%') {
+                screen.value = screen.value.substr(0, screen.value.length - 1);
+            }
+            else {
+                btntext = '*';
+            }
+        }
 
-        if (btntext == '÷')
+
+        if (btntext == '÷') {
             btntext = '/';
+            let string = screen.value;
+            if (string.charAt(string.length - 1) == '/' || string.charAt(string.length - 1) == '÷' || string.charAt(string.length - 1) == '-'
+                || string.charAt(string.length - 1) == '*' || string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '%') {
+                screen.value = screen.value.substr(0, screen.value.length - 1);
+            }
+            else {
+                btntext = '/';
+            }
 
-        if (btntext == 'mod')
+        }
+
+        if (btntext == 'mod') {
             btntext = '%';
+            let string = screen.value;
+            if (string.charAt(string.length - 1) == '%' || string.charAt(string.length - 1) == 'mod' || string.charAt(string.length - 1) == '/' ||
+                string.charAt(string.length - 1) == '-' || string.charAt(string.length - 1) == '*' || string.charAt(string.length - 1) == '+') {
+                screen.value = screen.value.substr(0, screen.value.length - 1);
+            }
+            else {
+                btntext = '%';
+            }
+        }
 
-        if (btntext == 'xy')
+
+        if (btntext == 'xy') {
             btntext = '**';
+            let string = screen.value;
+            if (string.charAt(string.length - 1) == '*' || string.charAt(string.length - 1) == 'y') {
+                screen.value = screen.value.substr(0, screen.value.length - 2);
+            }
+            else {
+                btntext = '**';
+            }
+        }
+
+
+        if (btntext == '+') {
+            let string = screen.value;
+            if (string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '-' || string.charAt(string.length - 1) == '*'
+                || string.charAt(string.length - 1) == '/' || string.charAt(string.length - 1) == '%') {
+                screen.value = screen.value.substr(0, screen.value.length - 1);
+            }
+        }
+
+        if (btntext == '-') {
+            let string = screen.value;
+            if (string.charAt(string.length - 1) == '-' || string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '*'
+                || string.charAt(string.length - 1) == '/' || string.charAt(string.length - 1) == '%') {
+                screen.value = screen.value.substr(0, screen.value.length - 1);
+            }
+        }
+
+
         screen.value += btntext;
     });
 }
 
+
 // for press button through keyboard
-var key = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '%', ')', '(', 'enter'];
+var key = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '%', ')', '(', '.', '=', 'enter', 'delete'];
 function checkPressedKey(e) {
     let val = e.key
+    let string = screen.value;
+    if (val == '-') {
+        if (string.charAt(string.length - 1) == '-' || string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '*'
+            || string.charAt(string.length - 1) == '/') {
+            screen.value = screen.value.substr(0, screen.value.length - 1);
+        }
+    }
+
+    if (val == '+') {
+        if (string.charAt(string.length - 1) == '-' || string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '*'
+            || string.charAt(string.length - 1) == '/') {
+            screen.value = screen.value.substr(0, screen.value.length - 1);
+        }
+    }
+
+    if (val == '*') {
+        if (string.charAt(string.length - 1) == '-' || string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '*'
+            || string.charAt(string.length - 1) == '/') {
+            screen.value = screen.value.substr(0, screen.value.length - 1);
+        }
+    }
+
+    if (val == '/') {
+        if (string.charAt(string.length - 1) == '-' || string.charAt(string.length - 1) == '+' || string.charAt(string.length - 1) == '*'
+            || string.charAt(string.length - 1) == '/') {
+            screen.value = screen.value.substr(0, screen.value.length - 1);
+        }
+    }
+
+
     for (let i = 0; i < key.length; i++) {
-        if (key[i] == val) { return true; }
+        if ("=" == val) { equal(); }
+        else if (key[i] == val) { return true; }
         else if ("Enter" == val) { equal(); }
+        // else if(46 == val) { clearall(); }
+
     }
     return false;
 }
@@ -161,8 +252,15 @@ function mminus() {
 
 //ms->store value in console
 function ms() {
-    x = screen.value;
-    console.log(screen.value);
+    try {
+        x = eval(screen.value);
+        console.log(screen.value);
+
+    }
+    catch (error) {
+        screen.value = "error";
+    }
+
 }
 
 //mr->read the last value of console
@@ -173,6 +271,7 @@ function mr() {
 //mc function->clear log 
 function mc() {
     console.clear();
+    x = 0;
 }
 
 //|x| function
@@ -199,6 +298,11 @@ function radToDeg(rad) {
     screen.value = rad * (180.0 / Math.PI);
 }
 
+//degree to radian      
+function Degtorad(deg) {
+    screen.value = deg * (Math.PI / 180);
+}
+
 //covert to floor value function
 function floor() {
     screen.value = Math.floor(screen.value);
@@ -213,3 +317,18 @@ function ceil() {
 function sign() {
     screen.value = Math.sign(screen.value);
 }
+
+//F-E function
+function fe() {
+    let a = screen.value;
+    screen.value = parseFloat(a).toExponential();
+}
+
+
+//For light-dark mode
+let button = document.querySelector('.darklight')
+
+// press the button to toggle the .dark-mode class
+button.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-mode')
+})
