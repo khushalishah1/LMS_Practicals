@@ -119,9 +119,15 @@ function checkPressedKey(e) {
 
 
     for (let i = 0; i < key.length; i++) {
-        if ("=" == val) { equal(); }
-        else if (key[i] == val) { return true; }
-        else if ("Enter" == val) { equal(); }
+        if ("=" == val) {
+            equal();
+        }
+        else if (key[i] == val) {
+            return true;
+        }
+        else if ("Enter" == val) {
+            equal();
+        }
         // else if(46 == val) { clearall(); }
 
     }
