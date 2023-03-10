@@ -7,17 +7,15 @@ let x = 0;
 
 //for button press and also add validation so that any operator operates one time only
 for (let item of btn) {
-    item.addEventListener('click', (e) => {
+    item.addEventListener('mousedown', (e) => {
         btntext = e.target.innerText;
-        console.log(btntext);
-
-
+        // console.log(btntext);
 
         if (btntext == 'Trigonometry ')
             btntext = '';
 
 
-        if (btntext == 'Function ')
+        if (btntext == 'function ')
             btntext = '';
 
         if (btntext == 'X') {
@@ -91,12 +89,6 @@ for (let item of btn) {
         screen.value += btntext;
     });
 }
-
-
-// function showdropdown() {
-//     document.getElementsId("mydropdown").classList.toggle("show");
-// }
-
 
 // for press button through keyboard
 var key = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '%', ')', '(', '.', '=', 'enter', 'delete'];
@@ -261,6 +253,7 @@ function mplus() {
 
     x += eval(screen.value);
     console.log(x);
+    screen.value = x;
 }
 
 //mminus function function
@@ -268,6 +261,7 @@ function mminus() {
 
     x -= eval(screen.value);
     console.log(x);
+    screen.value = x;
 }
 
 //ms->store value in console
