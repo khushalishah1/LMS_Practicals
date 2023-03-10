@@ -8,12 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='./css/style.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Calculator</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="con">
 
         <div class="calc">
             <form>
@@ -42,13 +45,13 @@
                 </div>
 
                 <!-- Trigonometry & function button -->
-                <div>
+                <!-- <div>
                     <div class="dropdown">
-                        <button class="dropbtn"
+                        <button onclick="showdropdown()" class="dropbtn"
                             style="width: 185px; margin-left: -6px; margin-right: 17px;">Trigonometry
                             <i class="fa fa-caret-down"></i>
                         </button>
-                        <div class="dropdown-content">
+                        <div id="mydropdown" class="dropdown-content">
                             <a onclick="sin()">sin</a>
                             <a onclick="cos()">cos</a>
                             <a onclick="tan()">tan</a>
@@ -66,8 +69,32 @@
                             <a onclick="sign()">sign</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
+                <div class="trigo_function">
+                    <div class="dropdown">
+                        <button id="drop" class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-expanded="false">Trigonometry <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a onclick="sin()">sin</a></li>
+                            <li><a onclick="cos()">cos</a></li>
+                            <li><a onclick="tan()">tan</a></li>
+                            <li><a onclick="cot()">cot</a></li>
+                        </ul>
+                    </div>
 
+
+                    <div class="dropdown">
+                        <button id="drop2" class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-expanded="false">Function <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a onclick="floor()">Floor</a></li>
+                            <li><a onclick="ceil()">Ceil</a></li>
+                            <li><a onclick="sign()">Sign</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <!-- 2nd,pi,e,c,backspace button -->
                 <div>
                     <button type="button" class="btn" value="2nd">2<sup>nd</sup></button>

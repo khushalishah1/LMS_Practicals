@@ -9,7 +9,16 @@ let x = 0;
 for (let item of btn) {
     item.addEventListener('click', (e) => {
         btntext = e.target.innerText;
-        //console.log(btntext);
+        console.log(btntext);
+
+
+
+        if (btntext == 'Trigonometry ')
+            btntext = '';
+
+
+        if (btntext == 'Function ')
+            btntext = '';
 
         if (btntext == 'X') {
             btntext = '*';
@@ -82,6 +91,11 @@ for (let item of btn) {
         screen.value += btntext;
     });
 }
+
+
+// function showdropdown() {
+//     document.getElementsId("mydropdown").classList.toggle("show");
+// }
 
 
 // for press button through keyboard
