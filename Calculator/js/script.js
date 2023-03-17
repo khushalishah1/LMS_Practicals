@@ -4,12 +4,12 @@ let screen = document.querySelector('#screen');
 // take all the btn class selector
 let btn = document.querySelectorAll(".btn");
 let x = 0;
-
 //for button press and also add validation so that any operator operates one time only
 for (let item of btn) {
     item.addEventListener('mousedown', (e) => {
         btntext = e.target.innerText;
         // console.log(btntext);
+
 
         if (btntext == 'Trigonometry ')
             btntext = '';
@@ -251,21 +251,30 @@ function ln() {
 //mplus function function
 function mplus() {
 
+    if (screen.value == "")
+        screen.value = 0;
+
     x += eval(screen.value);
     console.log(x);
-    screen.value = x;
 }
 
 //mminus function function
 function mminus() {
 
+    if (screen.value == "")
+        screen.value = 0;
+
+
     x -= eval(screen.value);
     console.log(x);
-    screen.value = x;
 }
 
 //ms->store value in console
 function ms() {
+
+    if (screen.value == "")
+        screen.value = 0;
+
     try {
         x = eval(screen.value);
         console.log(screen.value);
