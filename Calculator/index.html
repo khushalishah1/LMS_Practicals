@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- link for css,font  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/style.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="main_class">
+
+        <div class="calc">
+            <form>
+                <!-- display screen -->
+                <div class="display">
+                    <input id="screen" type="text" onkeypress="return checkPressedKey(event)" placeholder="0"
+                        autocomplete="off">
+                </div>
+
+                <!-- DEG and F-E button -->
+                <div>
+                    <button type="button" onclick="radToDeg(screen.value)" value="DEG">DEG</button>
+                    <button type="button" onclick="Degtorad(screen.value)" value="RAD">RAD</button>
+                    <button type="button" onclick="fe()" value="">F-E</button>
+                    <button type="button" class="darklight" style="width: 155px;" value="Light/Dark">Light/Dark</button>
+                </div>
+                <br>
+
+                <!-- MC,MR,M+,M-,MS buttons -->
+                <div>
+                    <button type="button" style="color: darkgrey;" onclick="mc()" value="MC"><b>MC</b></button>
+                    <button type="button" style="color: darkgrey;" onclick="mr()" value="MR"><b>MR</b></button>
+                    <button type="button" onclick="mplus()" value="M+">M+</button>
+                    <button type="button" onclick="mminus()" value="M-">M-</button>
+                    <button type="button" onclick="ms()" value="MS">MS</button>
+                </div>
+
+                <!-- Trigonometry & function button -->
+
+                <div class="trigo_function">
+                    <div class="dropdown">
+                        <button id="drop" class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-expanded="false">Trigonometry <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a onclick="sin()">sin</a></li>
+                            <li><a onclick="cos()">cos</a></li>
+                            <li><a onclick="tan()">tan</a></li>
+                            <li><a onclick="cot()">cot</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="dropdown">
+                        <button id="drop2" class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-expanded="false">function <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a onclick="floor()">Floor</a></li>
+                            <li><a onclick="ceil()">Ceil</a></li>
+                            <li><a onclick="sign()">Sign</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 2nd,pi,e,c,backspace button -->
+                <div>
+                    <button type="button" class="btn" value="2nd" disabled>2<sup>nd</sup></button>
+                    <button type="button" onclick="pi()" value="pi">&pi;</button>
+                    <button type="button" onclick="evalue()" value="e">e</button>
+                    <button type="button" onclick="clearall()" value="C">C</button>
+                    <button type="button" onclick="backspace()" value="backspace"><img width="17"
+                            src="../image/backspace.svg"></button>
+                </div>
+
+                <!-- x^2,1/x,|x|,exp,mod buttons -->
+                <div>
+                    <button type="button" onclick="power()" value="x^2">x<sup>2</sup></button>
+                    <button type="button" onclick="oneuponx()" value="1/x">1/x</button>
+                    <button type="button" onclick="positive()" value="|x|">|x|</button>
+                    <button type="button" onclick="exp()" value="exp">exp</button>
+                    <button type="button" class="btn" value="mod">mod</button>
+                </div>
+
+                <!-- rootx,(,),n!,division buttons -->
+                <div>
+                    <button type="button" onclick="sqrt()" value="underroot">2<span>&#8730;</span>x</button>
+                    <button type="button" class="btn" value="left bracket">(</button>
+                    <button type="button" class="btn" value="right bracket">)</button>
+                    <button type="button" onclick="fact(screen.value)" value="n!">n!</button>
+                    <button type="button" id="operator" class="btn" value="/">&#xf7;</button>
+                </div>
+
+                <!-- x^y,7,8,9,multiplication buttons -->
+                <div>
+                    <button type="button" class="btn" value="x^y">x<sup>y</sup></button>
+                    <button type="button" class="btn" value="7"><b>7</b></button>
+                    <button type="button" class="btn" value="8"><b>8</b></button>
+                    <button type="button" class="btn" value="9"><b>9</b></button>
+                    <button type="button" id="operator" class="btn" value="*">X</button>
+                </div>
+
+                <!-- 10^x,4,5,6,minus buttons -->
+                <div>
+                    <button type="button" onclick="tentox()" value="10^x">10<sup>x</sup></button>
+                    <button type="button" class="btn" value="4"><b>4</b></button>
+                    <button type="button" class="btn" value="5"><b>5</b></button>
+                    <button type="button" class="btn" value="6"><b>6</b></button>
+                    <button type="button" id="operator" class="btn" value="-">-</button>
+                </div>
+
+                <!-- log,1,2,3,plus buttons -->
+                <div>
+                    <button type="button" onclick="log()" value="log">log</button>
+                    <button type="button" class="btn" value="1"><b>1</b></button>
+                    <button type="button" class="btn" value="2"><b>2</b></button>
+                    <button type="button" class="btn" value="3"><b>3</b></button>
+                    <button type="button" id="operator" class="btn" value="+">+</button>
+                </div>
+
+                <!-- ln, +/- , 0 , . , =  buttons -->
+                <div>
+                    <button type="button" onclick="ln()" value="ln">ln</button>
+                    <button type="button" onclick="plusminus()" value="+/-">+/-</button>
+                    <button type="button" class="btn" value="0">0</button>
+                    <button type="button" class="btn" value=".">.</button>
+                    <button type="button" id="equ" style="background-color: aqua;" onclick="equal()"
+                        value="="><b>=</b></button>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
