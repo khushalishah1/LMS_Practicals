@@ -1,5 +1,4 @@
 '''Write a program for computing GCD of 2 numbers with optimal data structures and less time-consuming.'''
-
 def words_to_number(number1):
 
     '''
@@ -80,27 +79,40 @@ def gcd(a,b):
     else:
         return gcd(b,a%b)
 
-''' Take two numbers from user '''
 
-number1=input("enter 1st number ")
-number2=input("enter 2nd number ")
+#Main function
+if __name__=='__main__':
+    number1 = input("enter 1st number ") #Take num1 from user.
 
+    try:
+        if(number1.isnumeric()):      #check if input is valid or not
+            raise ValueError
 
-'''
-    Convert the word_to_number function's return string to an integer.
-      
-'''
-n1=int(words_to_number(number1))
-n2=int(words_to_number(number2))
+        n1=int(words_to_number(number1))    #Convert the word_to_number function's return string to an integer.
 
-#calling gcd function .
-answer=gcd(n1,n2)
+    except ValueError:
+        print("Invalid Input")
+        exit()
 
-#converting int to string and calling number_to_word function.
-answer=number_to_word(str(answer))
+    number2=input("enter 2nd number ")       #take 2nd number from user.
+    try:
+        if (number2.isnumeric()):        #check if input is valid or not
+            raise ValueError
 
-#printing answer as a list format.
-print( "answer = "+answer)
+        n2=int(words_to_number(number2))   #Convert the word_to_number function's return string to an integer.
+
+    except ValueError:
+        print("Invalid Input")
+        exit()
+
+    #calling gcd function .
+    answer=gcd(n1,n2)
+
+    #converting int to string and calling number_to_word function.
+    answer=number_to_word(str(answer))
+
+    #printing answer as a list format.
+    print( "answer = "+answer)
 
 
 
